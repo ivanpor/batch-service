@@ -1,0 +1,14 @@
+spring:
+   cloud:
+      stream:
+         bindings:
+            sincronization:
+               destination:  sincronization
+               content-type: application/json
+         kafka:
+            binder:
+               zkNodes: ivanpor:2181
+               brokers: ivanpor:9092
+   h2:
+      console:
+         enabled: true

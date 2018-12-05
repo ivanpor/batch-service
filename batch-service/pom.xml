@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.testing.microservices</groupId>
+	<artifactId>batch</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
+	<name>batch</name>
+	<description>Batch Service</description>
+	
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<camel.version>2.18.0</camel.version>
+	</properties>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.4.RELEASE</version>
+	</parent>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR5</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+	 	<dependency>
+	 		<groupId>org.springframework.boot</groupId>
+	 		<artifactId>spring-boot-starter-batch</artifactId>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>org.springframework.cloud</groupId>
+	 		<artifactId>spring-cloud-config-client</artifactId>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>org.springframework.cloud</groupId>
+	 		<artifactId>spring-cloud-starter-eureka</artifactId>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>org.springframework.cloud</groupId>
+	 		<artifactId>spring-cloud-starter-hystrix</artifactId>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>org.springframework.cloud</groupId>
+	 		<artifactId>spring-cloud-security</artifactId>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>org.springframework.security.oauth</groupId>
+	 		<artifactId>spring-security-oauth2</artifactId>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>org.springframework.cloud</groupId>
+	 		<artifactId>spring-cloud-starter-sleuth</artifactId>
+	 	</dependency>
+	 	
+	 	<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-core</artifactId>
+		</dependency>
+ 
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.papertrailapp</groupId>
+		    <artifactId>logback-syslog4j</artifactId>
+		    <version>1.0.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-batch</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
