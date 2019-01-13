@@ -14,7 +14,6 @@ create table articulo_sigrid
 
 create table articulo
 (
-   accion smallint not null,
    codigo varchar(50) not null,
    descripcion varchar(255) not null,
 );

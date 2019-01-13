@@ -1,14 +1,68 @@
 spring:
-   cloud:
-      stream:
-         bindings:
-            sincronization:
-               destination:  sincronization
-               content-type: application/json
-         kafka:
-            binder:
-               zkNodes: ivanpor:2181
-               brokers: ivanpor:9092
-   h2:
-      console:
-         enabled: true
+  application:    
+    name: ff
+  profiles:
+    active: standalone
+  datasource:
+    platform: h2
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+  activemq:
+      broker-url: tcp://localhost:61616
+      user: admin
+      password: admin
+app:
+  id: ${spring.application.name}
+  version: @project.version@
+
+logging:
+  level:
+    root: WARN    
+    
+amiga:
+  common:
+    logging:
+      file:
+        enabled: true
+        directory: ${user.home}/logs/${app.id}
+  data:
+    jdbc:
+      datasource:
+        miDSNOXA:
+              driverClassName: org.h2.Driver
+              password: sa
+              url: jdbc:h2:mem:test;MODE=Oracle
+              user: sa
+    jms:
+      connectionFactory:
+        broker1:
+          brokerURL: tcp://0.0.0.0:61616
+          userName: admin
+          password: admin
+    client:
+        articuloJmsClient:
+          destinationName: articulo
+          pubSubDomain: true
+          connectionFactory:
+            sessionCacheSize: 10
+
+batchservice:
+  articulos:
+    endpoints:
+      scheluder:
+        search: "scheduler://articulos?delay=15s"
+      job:
+        process: "spring-batch:articuloJob"
+      direct:
+        process: "direct:processBatch"
+      queue:
+        process: "activemq:queue:articulos"
+        
+#Change it
+Area: MiArea
+ClaveProyectoJira: ClaveJira
