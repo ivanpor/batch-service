@@ -15,7 +15,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-		<camel.version>2.18.0</camel.version>
+		<camel.version>2.19.0</camel.version>
 	</properties>
 	
 	<parent>
@@ -92,13 +92,30 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream</artifactId>
+		<!-- Camel -->
+        <dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core-starter</artifactId>
+			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-batch-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.camel</groupId>
+		    <artifactId>camel-cxf</artifactId>
+		    <version>${camel.version}</version>
 		</dependency>
 		
 		<dependency>

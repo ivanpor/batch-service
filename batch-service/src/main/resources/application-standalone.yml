@@ -1,0 +1,20 @@
+server:
+  port: 8081
+logging:
+  level:
+    root: INFO
+    org.springframework.batch: INFO
+    com.inditex.aqsw: INFO
+
+amiga:
+  data:
+    jdbc:
+      datasource:
+        miDSNOXA:
+              driverClassName: org.h2.Driver
+              password: sa
+              url: jdbc:h2:mem:test;MODE=Oracle
+              user: sa
+
+      
+   
